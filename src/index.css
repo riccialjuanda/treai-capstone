@@ -1,0 +1,935 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* ========================================
+   1. DESIGN SYSTEM / SISTEM DESAIN
+======================================== */
+
+:root {
+  /* --- Tipografi --- */
+  --font-display: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-heading: var(--font-display);
+
+  /* Skala ukuran teks (rem berbasis 16px) */
+  --fs-2xs: 0.6875rem; /* 11px */
+  --fs-xs: 0.75rem; /* 12px */
+  --fs-sm: 0.8125rem; /* 13px */
+  --fs-md: 0.9375rem; /* 15px - body */
+  --fs-lg: 1.0625rem; /* 17px */
+  --fs-xl: 1.25rem; /* 20px */
+  --fs-2xl: 1.5rem; /* 24px */
+  --fs-3xl: 1.875rem; /* 30px */
+  --fs-4xl: 2.375rem; /* 38px */
+  --fs-5xl: 3rem; /* 48px */
+
+  font-family: var(--font-body);
+
+  /* --- Warna utama: biru --- */
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #eef4ff;
+  --navy: #0b1f3f;
+
+  /* --- Aksen multicolor --- */
+  --cyan: #06b6d4;
+  --cyan-soft: #e0f7fc;
+  --violet: #8b5cf6;
+  --violet-soft: #f2ecff;
+  --emerald: #10b981;
+  --emerald-soft: #e2f8f0;
+  --amber: #f59e0b;
+  --amber-soft: #fff3e0;
+  --rose: #f43f5e;
+  --rose-soft: #ffe9ee;
+
+  /* --- Permukaan & teks --- */
+  --background: #f5f8fd;
+  --surface: #ffffff;
+  --surface-soft: #f8fafd;
+
+  --text-primary: #0f1e35;
+  --text-secondary: #55657f;
+  --text-muted: #8a99ae;
+
+  --border: #e4ebf6;
+  --border-strong: #d3deee;
+
+  /* --- Bayangan berlapis --- */
+  --shadow-xs: 0 1px 2px rgba(15, 30, 53, 0.05);
+  --shadow-sm: 0 4px 14px rgba(15, 30, 53, 0.06);
+  --shadow-md: 0 12px 30px rgba(15, 30, 53, 0.09);
+  --shadow-lg: 0 24px 60px rgba(15, 30, 53, 0.14);
+  --shadow-glow: 0 18px 40px rgba(37, 99, 235, 0.18);
+
+  /* --- Radius --- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+
+  color: var(--text-primary);
+  background: var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   2. RESET / PENGATURAN DASAR
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+
+  background: var(--background);
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.625rem, 3vw, 2.375rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 700;
+}
+
+h4 {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+h5 {
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+h6 {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  font-family: var(--font-body);
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+input,
+textarea,
+select {
+  min-width: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* ========================================
+   3. FOCUS / AKSESIBILITAS
+======================================== */
+
+:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #cfe0ff;
+  color: var(--navy);
+}
+
+/* Scrollbar modern */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c6d3e6 transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 3px solid transparent;
+  border-radius: 99px;
+  background-clip: content-box;
+  background-color: #c6d3e6;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #a9bad4;
+}
+
+/* ========================================
+   4. BUTTONS / TOMBOL UMUM
+======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  min-height: 46px;
+  padding: 0.7rem 1.25rem;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  text-align: center;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.24);
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.32);
+}
+
+.btn-secondary {
+  border-color: #d5e2fb;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: #b9cdfb;
+  background: #e2ecff;
+}
+
+.btn-outline {
+  border-color: var(--border-strong);
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: #b9cefa;
+  background: var(--surface-soft);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* ========================================
+   5. INPUT / FORM
+======================================== */
+
+.form-group {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.8rem 1rem;
+
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+
+  background: #ffffff;
+  color: var(--text-primary);
+
+  font-size: var(--fs-md);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-error {
+  color: var(--rose);
+  font-size: var(--fs-xs);
+}
+
+/* ========================================
+   6. CARD / KARTU
+======================================== */
+
+.card {
+  min-width: 0;
+  padding: 1.5rem;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: #c7d8fb;
+  box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   7. BADGES / LABEL STATUS
+======================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0.3rem 0.7rem;
+
+  border-radius: 999px;
+
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.badge-blue {
+  background: #e8f0ff;
+  color: #1e50c0;
+}
+
+.badge-green {
+  background: var(--emerald-soft);
+  color: #0b7a57;
+}
+
+.badge-orange {
+  background: var(--amber-soft);
+  color: #a35c07;
+}
+
+.badge-purple {
+  background: var(--violet-soft);
+  color: #6d3fd4;
+}
+
+.badge-red {
+  background: var(--rose-soft);
+  color: #c02a45;
+}
+
+.badge-cyan {
+  background: var(--cyan-soft);
+  color: #0a7f96;
+}
+
+/* ========================================
+   8. TEXT UTILITIES / UTILITAS TEKS
+======================================== */
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-heading {
+  font-family: var(--font-display);
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #2563eb, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================================
+   9. LAYOUT UTILITIES
+======================================== */
+
+.container {
+  width: min(100% - 48px, 1240px);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 96px;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.section-heading p {
+  color: var(--text-secondary);
+  font-size: var(--fs-lg);
+  line-height: 1.75;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* ========================================
+   10. DIVIDER / PEMBATAS
+======================================== */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background: var(--border);
+}
+
+/* ========================================
+   11. LOADING / STATUS
+======================================== */
+
+.spinner {
+  width: 22px;
+  height: 22px;
+
+  border: 3px solid #dce8ff;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease both;
+}
+
+/* ========================================
+   12. RESPONSIVE / TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+  .container {
+    width: min(100% - 40px, 940px);
+  }
+
+  .section {
+    padding-block: 76px;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   13. RESPONSIVE / MOBILE
+======================================== */
+
+@media (max-width: 640px) {
+  body {
+    font-size: var(--fs-sm);
+  }
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .section {
+    padding-block: 56px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    padding: 1.15rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .section-heading p {
+    font-size: var(--fs-md);
+  }
+
+  .mobile-full-width {
+    width: 100%;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* ========================================
+   14. REDUCE MOTION / AKSESIBILITAS
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   15. IDENTITAS VISUAL v3 — GRADASI & GLOW
+   Blok ini hanya menambah/menimpa properti.
+   Semua aturan di atas tetap berlaku.
+======================================== */
+
+:root {
+  /* Gradasi merek: biru -> cyan (tetap dalam rumpun warna biru) */
+  --gradient-brand: linear-gradient(100deg, #2563eb 0%, #1d4ed8 46%, #06b6d4 100%);
+  --gradient-brand-soft: linear-gradient(100deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1));
+  --gradient-navy: linear-gradient(130deg, #0b1f3f 0%, #1d4ed8 55%, #0891b2 120%);
+
+  /* Cahaya (glow) berlapis */
+  --glow-brand: 0 16px 38px rgba(37, 99, 235, 0.26);
+  --glow-cyan: 0 16px 38px rgba(6, 182, 212, 0.24);
+  --glow-soft: 0 16px 40px rgba(37, 99, 235, 0.14);
+
+  /* Permukaan kaca (glassmorphism) */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.65);
+
+  /* Cincin fokus merek */
+  --ring-brand: 0 0 0 4px rgba(37, 99, 235, 0.16);
+}
+
+/* Tombol utama: gradasi diperluas sampai cyan + glow lebih tegas */
+.btn-primary {
+  background: var(--gradient-brand);
+  background-size: 165% 165%;
+  background-position: 0% 50%;
+  box-shadow: var(--glow-brand);
+  transition:
+    background-position 0.5s ease,
+    box-shadow 0.26s ease,
+    transform 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-position: 100% 50%;
+  box-shadow: 0 22px 46px rgba(6, 182, 212, 0.34);
+}
+
+/* Teks gradasi: gradasi bergerak halus */
+.gradient-text {
+  background: linear-gradient(100deg, #2563eb, #06b6d4 45%, #2563eb);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brand-gradient-pan 8s ease-in-out infinite;
+}
+
+@keyframes brand-gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Animasi masuk: naik + memudar (fill-mode backwards agar hover tetap aktif) */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise-in {
+  animation: rise-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Denyut cahaya untuk elemen aksen/aura */
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text,
+  .animate-rise-in {
+    animation: none !important;
+  }
+}
+
+/* ========================================
+   16. MODERN REFRESH v5 — POLES DESAIN GLOBAL
+   Penambahan halus pada atmosfer latar, permukaan,
+   kontrol, dan detail mikro. Aturan lama tetap berlaku.
+======================================== */
+
+:root {
+  /* Bayangan mengambang + garis aksen halus */
+  --shadow-float: 0 24px 52px rgba(15, 30, 53, 0.13);
+  --hairline-blue: rgba(37, 99, 235, 0.18);
+  --hairline-cyan: rgba(6, 182, 212, 0.2);
+}
+
+/* ---------- Atmosfer latar: aurora biru-cyan lembut ---------- */
+body {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 820px 560px at 100% -10%, rgba(6, 182, 212, 0.1), transparent 62%),
+    radial-gradient(ellipse 760px 600px at -10% 2%, rgba(37, 99, 235, 0.11), transparent 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ---------- Cincin fokus: menyatu dengan warna merek ---------- */
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.42);
+  outline-offset: 3px;
+}
+
+/* ---------- Scrollbar: thumb beraksen gradasi ---------- */
+*::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, #c8d8f2, #b9cdea);
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(180deg, #a9c1e8, #93b0dd);
+}
+
+/* ---------- Tombol: tanpa sapuan cahaya, cukup bayangan tegas ---------- */
+.btn-primary {
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.28);
+}
+
+.btn-secondary,
+.btn-outline {
+  box-shadow: var(--shadow-xs);
+}
+
+/* ---------- Kartu: radius lebih lembut + angkat lebih halus ---------- */
+.card {
+  border-radius: var(--radius-lg);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: var(--hairline-blue);
+  box-shadow: var(--shadow-float);
+}
+
+/* ---------- Badge: garis tepi tipis agar lebih rapi ---------- */
+.badge {
+  border: 1px solid rgba(15, 30, 53, 0.05);
+  font-weight: 700;
+}
+
+/* ---------- Form: umpan balik hover sebelum fokus ---------- */
+.form-input:hover:not(:focus),
+.form-select:hover:not(:focus),
+.form-textarea:hover:not(:focus) {
+  border-color: #bfd3f4;
+}
+
+/* ---------- Pembatas: gradasi halus di kedua ujung ---------- */
+.divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-strong) 16%,
+    var(--border-strong) 84%,
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   17. MODERN REFRESH v6 — TIPOGRAFI TENANG
+   Menghilangkan kesan "terlalu AI": satu font (Inter) dengan
+   ketebalan & jarak huruf yang lebih wajar, serta menghentikan
+   animasi gradasi/denyut yang berlebihan. Aturan lama tetap berlaku.
+======================================== */
+
+/* Semua kontrol ikut memakai Inter */
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body);
+}
+
+/* Judul: turunkan ketebalan & longgarkan jarak huruf */
+h1,
+h2 {
+  font-weight: 700;
+}
+
+h1 {
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+h2 {
+  letter-spacing: -0.02em;
+}
+
+/* Teks gradasi: gradasi tetap, animasi berjalan dihentikan */
+.gradient-text {
+  animation: none;
+  background-size: 100% 100%;
+}
+
+/* Batalkan denyut pada semua elemen yang memakai glow-breathe */
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+}

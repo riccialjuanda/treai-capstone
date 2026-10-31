@@ -1,0 +1,718 @@
+/* ==========================================
+   SPEAKTOEFL AI — HALAMAN MASUK / DAFTAR
+   Satu kartu putih terpusat (tanpa panel showcase).
+   Seluruh nilai sudah dikonsolidasikan dari lapisan override lama.
+========================================== */
+
+.login-page {
+  display: grid;
+  place-items: center;
+
+  min-height: 100vh;
+  padding: 40px 20px;
+
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+}
+
+.login-page *,
+.login-page *::before,
+.login-page *::after {
+  box-sizing: border-box;
+}
+
+.login-page button,
+.login-page input {
+  font: inherit;
+  font-family: var(--font-body);
+}
+
+.login-page button:focus-visible,
+.login-page input:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+.login-page button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ==========================================
+   1. KARTU
+========================================== */
+
+.login-shell {
+  display: block;
+
+  width: 100%;
+  max-width: 460px;
+  margin: 0;
+  overflow: hidden;
+
+  border: 1px solid #dbe8ff;
+  border-radius: var(--radius-lg);
+
+  background: #ffffff;
+  box-shadow: var(--shadow-lg);
+}
+
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  padding: 34px 32px 30px;
+
+  background: #ffffff;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+  margin: auto;
+}
+
+/* ==========================================
+   2. BRAND (PITA HEADER KARTU)
+========================================== */
+
+.login-mobile-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: -34px -32px 26px;
+  padding: 18px 32px;
+
+  border-bottom: 1px solid #dbe8ff;
+
+  background: linear-gradient(135deg, var(--primary-light), #e8f4ff);
+}
+
+.login-brand-icon {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 47px;
+  height: 47px;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 15px;
+
+  background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+  box-shadow: 0 10px 20px -12px rgba(37, 99, 235, 0.95);
+}
+
+.login-mobile-brand .login-brand-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.login-brand-robot {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  width: 27px;
+  height: 21px;
+
+  border: 2px solid #ffffff;
+  border-radius: 7px;
+
+  background: transparent;
+}
+
+.login-brand-robot::before {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+
+  width: 3px;
+  height: 6px;
+
+  border-radius: 4px;
+  background: #ffffff;
+
+  content: "";
+  transform: translateX(-50%);
+}
+
+.login-brand-robot::after {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+
+  width: 11px;
+  height: 3px;
+
+  border-radius: 4px;
+  background: #ffffff;
+
+  content: "";
+  transform: translateX(-50%);
+}
+
+.login-brand-robot i {
+  width: 4px;
+  height: 6px;
+
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.login-mobile-brand > span:last-child {
+  display: grid;
+  gap: 3px;
+}
+
+.login-mobile-brand strong {
+  color: var(--text-primary);
+
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.login-mobile-brand strong em {
+  color: var(--primary);
+  font-style: normal;
+}
+
+.login-mobile-brand small {
+  color: var(--text-muted);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================
+   3. TAB MASUK / DAFTAR
+========================================== */
+
+.login-tabs-header {
+  display: flex;
+  gap: 6px;
+
+  margin-bottom: 18px;
+  padding: 4px;
+
+  border: 1px solid #dbe8ff;
+  border-radius: var(--radius-sm);
+
+  background: var(--primary-light);
+}
+
+.login-tab-btn {
+  flex: 1;
+
+  padding: 11px 10px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: transparent;
+  color: #4a6b9e;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.login-tab-btn.is-active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+/* ==========================================
+   4. FORM, LABEL, DAN INPUT
+========================================== */
+
+.login-form {
+  display: grid;
+  gap: 17px;
+}
+
+.login-input-group {
+  min-width: 0;
+}
+
+.login-field-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.login-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 52px;
+  padding: 0 16px;
+
+  border: 1px solid #dbe8ff;
+  border-radius: 14px;
+
+  background: var(--surface);
+  color: var(--text-muted);
+
+  box-shadow: var(--shadow-xs);
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-input-wrapper:hover {
+  border-color: #bed6fb;
+}
+
+.login-input-wrapper:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.login-input-wrapper > svg {
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+.login-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+}
+
+.login-input-wrapper input:focus-visible {
+  outline: none;
+}
+
+.login-input-wrapper input::placeholder {
+  color: #9aa8ba;
+}
+
+.login-input-wrapper input:-webkit-autofill,
+.login-input-wrapper input:-webkit-autofill:hover,
+.login-input-wrapper input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-primary);
+  box-shadow: 0 0 0 1000px #ffffff inset;
+}
+
+.login-password-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
+
+  min-height: 35px;
+  padding: 4px 0 4px 5px;
+
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.login-password-toggle:hover {
+  color: var(--primary);
+}
+
+.login-password-toggle svg {
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   5. TAUTAN "LUPA KATA SANDI" & PESAN
+========================================== */
+
+.login-inline-action {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: -4px;
+}
+
+.login-inline-action button {
+  padding: 0;
+  border: none;
+  background: none;
+
+  color: var(--primary);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: color 0.18s ease;
+}
+
+.login-inline-action button:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.login-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  padding: 13px 14px;
+
+  border: 1px solid #ffd7e0;
+  border-radius: var(--radius-sm);
+
+  background: var(--rose-soft);
+  color: #c81e4a;
+}
+
+.login-error > span {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: #ffdce6;
+  color: #b81a44;
+
+  font-size: var(--fs-xs);
+  font-weight: 800;
+}
+
+.login-error p {
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.login-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  padding: 12px 13px;
+
+  border: 1px solid #d7ecdd;
+  border-radius: var(--radius-sm);
+
+  background: #f2fbf5;
+  color: #157347;
+}
+
+.login-info > svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.login-info p {
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.login-demo-code {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+
+  padding: 12px 13px;
+
+  border: 1px dashed #bed6fb;
+  border-radius: var(--radius-sm);
+
+  background: #f7faff;
+  color: #33517f;
+}
+
+.login-demo-code > svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--primary);
+}
+
+.login-demo-code p {
+  margin: 0;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+}
+
+.login-demo-code strong {
+  color: var(--primary-dark);
+  font-size: var(--fs-sm);
+  letter-spacing: 1.5px;
+}
+
+/* ==========================================
+   6. KEPALA PANEL LUPA KATA SANDI
+========================================== */
+
+.login-forgot-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 18px;
+  padding: 13px 14px;
+
+  border: 1px solid #dbe8ff;
+  border-radius: var(--radius-sm);
+
+  background: var(--primary-light);
+}
+
+.login-forgot-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid #dbe8ff;
+  border-radius: 10px;
+
+  background: #ffffff;
+  color: var(--primary);
+}
+
+.login-forgot-head strong {
+  display: block;
+
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.login-forgot-head small {
+  display: block;
+  margin-top: 2px;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: 1.45;
+}
+
+/* ==========================================
+   7. TOMBOL SUBMIT
+========================================== */
+
+.login-submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 52px;
+  margin-top: 3px;
+  padding: 14px 20px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: var(--primary);
+  color: #ffffff;
+
+  text-align: left;
+  cursor: pointer;
+
+  box-shadow: 0 12px 24px -16px rgba(37, 99, 235, 0.95);
+
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.login-submit-button:hover {
+  transform: translateY(-2px);
+
+  background: var(--primary-dark);
+  box-shadow: none;
+}
+
+.login-submit-button:active {
+  transform: translateY(0);
+}
+
+.login-submit-button:disabled {
+  cursor: wait;
+  opacity: 0.82;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+.login-submit-button > span {
+  display: grid;
+  gap: 4px;
+}
+
+.login-submit-button strong {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.login-submit-button small {
+  color: #dce8ff;
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+}
+
+.login-submit-button > svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.login-submit-button:hover > svg {
+  transform: translateX(3px);
+}
+
+.login-spinner {
+  animation: login-spin 0.8s linear infinite;
+}
+
+@keyframes login-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   8. TAUTAN BAWAH
+========================================== */
+
+.login-bottom-link {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 22px;
+}
+
+.login-bottom-link button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-height: 35px;
+  padding: 6px 10px;
+
+  border: 0;
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+  color: var(--primary);
+
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.login-bottom-link button:hover {
+  background: #f0f5ff;
+  color: var(--primary-dark);
+}
+
+/* ==========================================
+   9. RESPONSIF
+========================================== */
+
+@media (max-width: 640px) {
+  .login-input-wrapper input {
+    font-size: var(--fs-md);
+  }
+
+  .login-submit-button strong {
+    font-size: var(--fs-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 20px 14px;
+  }
+
+  .login-form-panel {
+    padding: 26px 20px 24px;
+  }
+
+  .login-mobile-brand {
+    margin: -26px -20px 22px;
+    padding: 16px 20px;
+  }
+}
+
+/* ==========================================
+   10. AKSESIBILITAS
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .login-page *,
+  .login-page *::before,
+  .login-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
